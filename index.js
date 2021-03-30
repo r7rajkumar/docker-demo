@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 app.get('/', function (req, res) {
-  res.send('welcome to the docker hub!');
+  res.send('welcome to the dockertest!');
 });
 
 var server = app.listen(3000, function () {

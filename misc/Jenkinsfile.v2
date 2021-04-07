@@ -9,9 +9,9 @@ node {
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
      myTestContainer.inside {
-       sh 'sudo apt-get install sudo'
-       sh 'sudo npm install --only=dev'
-       sh 'sudo npm test'
+       args '-u root'
+       sh 'npm install --only=dev'
+       sh 'npm test'
      }
    }
    stage('test with a DB') {

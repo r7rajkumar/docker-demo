@@ -6,9 +6,10 @@ node {
      commit_id = readFile('.git/commit-id').trim()
    }
    stage('test') {
-     def myTestContainer = docker.image('node:4.6').withRun('-u root')
+     def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
      myTestContainer.inside {
+      sh 'usermod -AG docker jenkins'
       sh 'npm install --only=dev'
        sh 'npm test'
      }

@@ -9,6 +9,7 @@ node {
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
      myTestContainer.inside {
+      sh 'groupadd docker'
       sh 'usermod -a -G docker jenkins'
       sh 'npm install --only=dev'
        sh 'npm test'

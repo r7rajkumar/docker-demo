@@ -9,8 +9,8 @@ node {
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
      myTestContainer.inside {
-       args '-u root'
-       sh 'npm install --only=dev'
+     sh 'chown -R Jenkins /mydir'
+     sh 'npm install --only=dev'
        sh 'npm test'
      }
    }

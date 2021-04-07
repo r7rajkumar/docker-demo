@@ -9,7 +9,7 @@ node {
      def myTestContainer = docker.image('node:4.6')
      myTestContainer.pull()
      myTestContainer.inside {
-       sh 'apt-get install sudo'
+       sh 'sudo apt-get install sudo'
        sh 'sudo npm install --only=dev'
        sh 'sudo npm test'
      }
